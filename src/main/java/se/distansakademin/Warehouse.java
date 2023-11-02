@@ -9,7 +9,7 @@ public class Warehouse {
 
     public Warehouse(int id, String location) {
         this.id = id;
-        this.location = location;
+        setLocation(location);
 
         products = new ArrayList<>();
     }
@@ -27,7 +27,16 @@ public class Warehouse {
     }
 
     public void setLocation(String location) {
-        this.location = location;
+        // kista / KISTA / kIsTa --> Kista
+
+        String firstLetter = location.substring(0, 1).toUpperCase();
+        String rest = location.substring(1).toLowerCase();
+
+        this.location = firstLetter + rest;
+    }
+
+    public ArrayList<Product> getAllProducts() {
+        return products;
     }
 
     /**
@@ -35,7 +44,7 @@ public class Warehouse {
      *
      * @param product The product to add to the warehouse stock
      */
-    public void addProduct(Product product){
+    public void addProduct(Product product) {
         products.add(product);
     }
 
@@ -44,7 +53,7 @@ public class Warehouse {
      *
      * @param id The product id to remove
      */
-    public void removeProductById(int id){
+    public void removeProductById(int id) {
         // remove => id:1
         // id:1, name:iphone <--
         // id:2 name:juice
@@ -57,7 +66,7 @@ public class Warehouse {
             Product product = products.get(i);
 
             // If current products id == id to remove
-            if(product.getId() == id){
+            if (product.getId() == id) {
 
                 // Remove product
                 products.remove(i);
@@ -65,13 +74,6 @@ public class Warehouse {
                 // Exit loop and method
                 return;
             }
-        }
-    }
-
-
-    public void listAllProducts(){
-        for (var product : products) {
-            System.out.println(product);
         }
     }
 }
