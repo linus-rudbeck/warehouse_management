@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 public class WarehouseManager {
-    public ArrayList<Warehouse> warehouses = new ArrayList<>();
+    private ArrayList<Warehouse> warehouses = new ArrayList<>();
 
     /**
      * Adds a new warehouse to the list of all warehouses
@@ -15,7 +15,7 @@ public class WarehouseManager {
      */
     public void addNewWarehouse(Warehouse warehouse) throws IllegalArgumentException {
         boolean idExists = warehouses.stream()
-                .anyMatch(w -> w.getId() == warehouse.getId());
+                .anyMatch(w -> w.getWarehouseId() == warehouse.getWarehouseId());
 
         if(idExists){
             throw new IllegalArgumentException("A warehouse with that ID already exists");
@@ -55,7 +55,7 @@ public class WarehouseManager {
     public Warehouse getWarehouseById(int id) throws FindException {
         // Filter all warehouses on ID
         Optional<Warehouse> optionalWarehouse = warehouses.stream()
-                .filter(w -> w.getId() == id)
+                .filter(w -> w.getWarehouseId() == id)
                 .findFirst();
 
         // If there is a warehouse with the ID...
