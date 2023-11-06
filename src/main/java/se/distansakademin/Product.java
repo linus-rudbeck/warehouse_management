@@ -5,7 +5,7 @@ import java.util.Currency;
 public class Product {
     private int id;
     private String name;
-    private int price;
+    private int price; // TODO: Change to Currency
     private String description;
 
     public Product(int id, String name, int price, String description) {
