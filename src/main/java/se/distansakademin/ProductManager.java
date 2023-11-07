@@ -1,4 +1,6 @@
 package se.distansakademin;
 
-public class ProductManager {
+import se.distansakademin.data_objects.Product;
+
+public class ProductManager extends DataObjectManager<Product> {
 }
