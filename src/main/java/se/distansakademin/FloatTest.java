@@ -22,4 +22,12 @@ class FloatTest
         System.out.println(correctTotal / 10);
         System.out.println(total);
     }
+
+    private static void removeUser(String username){
+        System.out.println("REMOVE USER: " + username);
+    }
+
+    private static void removeUser(int username){
+        System.out.println("REMOVE USER: " + username);
+    }
 }
